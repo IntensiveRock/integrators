@@ -1,0 +1,6 @@
+name: rove
+version: ql-2024-10-12
+distinfo-subscription-url: qlot://localhost/rove.txt
+canonical-distinfo-url: qlot://localhost/rove.txt
+release-index-url: qlot://localhost/rove/ql-2024-10-12/releases.txt
+system-index-url: qlot://localhost/rove/ql-2024-10-12/systems.txt

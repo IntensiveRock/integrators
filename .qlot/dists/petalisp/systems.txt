@@ -1,0 +1,11 @@
+# project system-file system-name [dependency1..dependencyN]
+petalisp petalisp petalisp asdf petalisp.api petalisp.test-suite
+petalisp petalisp.api petalisp.api alexandria asdf petalisp.codegen petalisp.core petalisp.graphviz petalisp.ir petalisp.native-backend petalisp.packages petalisp.utilities split-sequence trivia trivial-macroexpand-all
+petalisp petalisp.codegen petalisp.codegen alexandria asdf cffi petalisp.core petalisp.ir petalisp.utilities trivia trivial-macroexpand-all ucons
+petalisp petalisp.core petalisp.core alexandria asdf bordeaux-threads lparallel petalisp.packages petalisp.utilities trivia typo
+petalisp petalisp.examples petalisp.examples asdf numpy-file-format petalisp.api
+petalisp petalisp.ir petalisp.ir alexandria asdf petalisp.core petalisp.utilities priority-queue split-sequence ucons
+petalisp petalisp.native-backend petalisp.native-backend alexandria asdf bordeaux-threads cffi lparallel petalisp.codegen petalisp.core petalisp.ir petalisp.utilities static-vectors trivia trivial-garbage typo
+petalisp petalisp.packages petalisp.packages asdf
+petalisp petalisp.test-suite petalisp.test-suite asdf bordeaux-threads closer-mop petalisp.api petalisp.examples petalisp.native-backend
+petalisp petalisp.utilities petalisp.utilities alexandria asdf bordeaux-threads queues.priority-queue trivia trivial-garbage
