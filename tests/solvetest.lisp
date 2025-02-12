@@ -1,7 +1,6 @@
 (defpackage integrators/tests/solvetest
   (:use :cl
 	:rove)
-  ;; (:export )
   (:local-nicknames (:pl :petalisp)
 		    (:ode :integrators.odeproblem)
 		    (:integ :integrators.integrator))

@@ -2,7 +2,8 @@
   :version "0.0.1"
   :author ""
   :license ""
-  :depends-on ("petalisp")
+  :depends-on ("trivial-features"
+	       "petalisp")
   :components ((:module "src"
                 :components
                 ((:file "main")
