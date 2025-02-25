@@ -1,6 +1,0 @@
-name: petalisp
-version: ql-2024-10-12
-distinfo-subscription-url: qlot://localhost/petalisp.txt
-canonical-distinfo-url: qlot://localhost/petalisp.txt
-release-index-url: qlot://localhost/petalisp/ql-2024-10-12/releases.txt
-system-index-url: qlot://localhost/petalisp/ql-2024-10-12/systems.txt
