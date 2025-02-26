@@ -1,10 +1,11 @@
 (defpackage integrators/tests/solvetest
   (:use :cl
-	:rove)
+	:rove
+	:integrators)
   (:local-nicknames (:pl :petalisp)
-		    (:ode :integrators.odeproblem)
-		    (:integ :integrators.integrator))
-  )
+		    ;; (:ode :integrators.odeproblem)
+		    ;; (:integ :integrators.integrator))
+  ))
 
 (in-package :integrators/tests/solvetest)
 
@@ -27,47 +28,47 @@
 ;;; Scalar tests
 
 (defun fe-test ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:forward-euler))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
+	(fe (make-instance 'forward-euler))
 	(true-solution (make-array '(100) :initial-contents (loop for n from 0 below 10 by 0.1 collect (+ 1. (* 3. n))))))
-    (setf solution (make-array '(100) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100) :initial-contents (solve problem fe)))
     (> 0.00000001 (mse-svf true-solution solution))))
 
 (defun rk4-test ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:rk4))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
+	(fe (make-instance 'rk4))
 	(true-solution (make-array '(100) :initial-contents (loop for n from 0 below 10 by 0.1 collect (+ 1. (* 3. n))))))
-    (setf solution (make-array '(100) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100) :initial-contents (solve problem fe)))
    (> 0.00000001 (mse-svf true-solution solution))))
 
 (defun heun-test ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:heun))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 1 :t-max 10 :t-step 0.1))
+	(fe (make-instance 'heun))
 	(true-solution (make-array '(100) :initial-contents (loop for n from 0 below 10 by 0.1 collect (+ 1. (* 3. n))))))
-    (setf solution (make-array '(100) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100) :initial-contents (solve problem fe)))
    (> 0.00000001 (mse-svf true-solution solution))))
 
 ;;; Vector tests.
 
 (defun fe-test-v ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:forward-euler))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
+	(fe (make-instance 'forward-euler))
 	(true-solution (make-array '(100 2) :initial-contents (loop for n from 0 below 10 by 0.1 collect (list (+ 1. (* 3. n)) (+ 1. (* 3. n)))))))
-    (setf solution (make-array '(100 2) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100 2) :initial-contents (solve problem fe)))
     (> 0.00000001 (mse-vvf true-solution solution))))
 
 (defun rk4-test-v ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:rk4))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
+	(fe (make-instance 'rk4))
 	(true-solution (make-array '(100 2) :initial-contents (loop for n from 0 below 10 by 0.1 collect (list (+ 1. (* 3. n)) (+ 1. (* 3. n)))))))
-    (setf solution (make-array '(100 2) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100 2) :initial-contents (solve problem fe)))
     (> 0.00000001 (mse-vvf true-solution solution))))
 
 (defun heun-test-v ()
-  (let ((problem (make-instance 'ode:ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
-	(fe (make-instance 'integ:heun))
+  (let ((problem (make-instance 'ode-problem :func #'(lambda (y_n t_n) 3) :y_0 #(1 1) :t-max 10 :t-step 0.1))
+	(fe (make-instance 'heun))
 	(true-solution (make-array '(100 2) :initial-contents (loop for n from 0 below 10 by 0.1 collect (list (+ 1. (* 3. n)) (+ 1. (* 3. n)))))))
-    (setf solution (make-array '(100 2) :initial-contents (integ:solve problem fe)))
+    (setf solution (make-array '(100 2) :initial-contents (solve problem fe)))
    (> 0.00000001 (mse-vvf true-solution solution))))
 
 (deftest Forward-Euler

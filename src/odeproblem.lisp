@@ -1,13 +1,5 @@
-(defpackage integrators.odeproblem
-  (:use :cl)
-  (:export #:ode-problem
-	   #:functional-form
-	   #:t-max
-	   #:t-step
-	   #:init-cond)
-  (:local-nicknames (:pl :petalisp)))
-
-(in-package :integrators.odeproblem)
+;;; Define the ODEProblem.
+(in-package :integrators)
 
 (defclass ode-problem ()
   ((functional-form
