@@ -63,3 +63,4 @@ Suppose we have the initial condition, $A(0)=1,B(0)=0)$; we set up this problem 
 ```
 
 ## Installation
+Installation is now available through Ultralisp! Make sure that you have configured quicklisp to install via Ultralisp and you can ql:quickload or qlot add the package!
