@@ -6,7 +6,7 @@
 	       "petalisp")
   :components ((:module "src"
                 :components
-                ((:file "main")
+                ((:file "package")
 		 (:file "odeproblem")
 		 (:file "integrator"))))
   :description "Integrators in Common Lisp"
